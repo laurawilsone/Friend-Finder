@@ -8,39 +8,28 @@ module.exports = function(app){
     res.json(friendList);
   });
 
-// best possible match with the lowest score
 app.post('/api/friends', function(req,res){
-  //grabs the new friend's scores to compare with friends in friendList array
+
   var newFriendScores = req.body.scores;
   var scoresArray = [];
-  var bestMatch = 0;
+  var match = 0;
 
-  //runs through all current friends in list
   for(var i=0; i<friendList.length; i++){
     var scoresDiff = 0;
-    //run through scores to compare friends
     for(var j=0; j<newFriendScores.length; j++){
       scoresDiff += Math.abs(friendList[i].scores[j] - newFriendScores[j]);
     }
     console.log(scoresDiff, friendList[i].name);
-
-
-    //push results into scoresArray
     scoresArray.push(scoresDiff);
   }
   
-  //after all friends are compared, find best match
   for(var i=0; i<scoresArray.length; i++){
-    if(scoresArray[i] <= scoresArray[bestMatch]){
-      bestMatch = i;
+    if(scoresArray[i] <= scoresArray[match]){
+      match = i;
     }
   }
-
-  //return bestMatch data
-  var closestMatch = friendList[bestMatch];
+  var closestMatch = friendList[match];
   res.json(closestMatch);
-
-  //pushes new submission into the friendsList array
   friendList.push(req.body);
 });
 };
