@@ -3,10 +3,10 @@ A full stack friend matching app that will match friends based on a survey. Once
 
 
 # Technologies Used
-> Node.js
-> body-paraser NPM 
-> express NPM  
-> path NPM 
+* Node.js
+* body-paraser NPM 
+* express NPM  
+* path NPM 
 
 # Built With
-> Visual Studio Code
+8 Visual Studio Code
