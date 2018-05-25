@@ -6,7 +6,7 @@ A full stack friend matching app that will match friends based on a survey. Once
 * Node.js
 * body-paraser NPM 
 * express NPM  
-* path NPM 
+* Path NPM 
 
 # Built With
 * Visual Studio Code
